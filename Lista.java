@@ -84,9 +84,12 @@ public class Lista<T extends Comparable>{
     public void swapNodos(Nodo<T> p, Nodo<T> n){
         Nodo<T> temp = new Nodo<>();
         
-        temp.setInfo(n.getInfo());
-        n.setInfo(p.getInfo());
-        p.setInfo(temp.getInfo());
+        if(n!=null)
+            temp.setInfo(n.getInfo());
+        if(p!=null && n!=null)
+            n.setInfo(p.getInfo());
+        if(p!=null)
+            p.setInfo(temp.getInfo());
     }
     
     

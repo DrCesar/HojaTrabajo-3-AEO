@@ -38,7 +38,9 @@ public class Main {
         Path file = Paths.get(dir.substring(0,dir.indexOf("Main"))+"/numeros.txt");
         
         Lista<Integer> lSelection = new Lista<Integer>();
-        Lista<Integer> lprueba = new Lista<Integer>();
+        Lista<Integer> lInsert = new Lista<Integer>();
+        Lista<Integer> lMerge = new Lista<Integer>();
+        Lista<Integer> lQuick = new Lista<Integer>();
         Sorts<Integer> sort = new Sorts<Integer>();
         
         for(int i = 1; i <= 10; i++){
@@ -60,7 +62,9 @@ public class Main {
             
             while ((linea = buff.readLine()) != null){
                 lSelection.add(Integer.parseInt(linea));
-                lprueba.add(Integer.parseInt(linea));
+                lInsert.add(Integer.parseInt(linea));
+                lMerge.add(Integer.parseInt(linea));
+                lQuick.add(Integer.parseInt(linea));
             }
             
         } catch(IOException e){
@@ -69,12 +73,19 @@ public class Main {
         
         System.out.println(lSelection.length());
         
-        lSelection.selectionSortN();
-        System.out.println("Resultado 1");
+        
+        System.out.println("Resultado Selection Sort");
+        sort.selectionSortN(lSelection);
         lSelection.print();
-        System.out.println("Resultado 2");
-        lprueba = sort.mergeSortN(lprueba,1,lprueba.length());
-        lprueba.print();
+        System.out.println("Resultado Insert Sort");
+        sort.insertSortN(lInsert);
+        lInsert.print();
+        System.out.println("Resultado Merge Sort");
+        sort.quickSortN(lMerge,1,lMerge.length());
+        lMerge.print();
+        System.out.println("Resultado Quick Sort");
+        sort.quickSortN(lQuick,1,lQuick.length());
+        lQuick.print();
         
     }
     

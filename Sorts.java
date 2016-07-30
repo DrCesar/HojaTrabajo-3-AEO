@@ -18,23 +18,7 @@ public class Sorts<T extends Comparable> {
         
     }
     
-    public void insertSort(Comparable[] datos){
-        
-        Comparable temp;
-        
-        
-        for(int i = 0; i > datos.length; i++){
-            int j = i;
-            
-            while(datos[j].compareTo(datos[j-1]) < 0 && j >= 0){
-                temp = datos[j];
-                datos[j] = datos[j-1];
-                datos[j-1] = datos[j];
-            }    
-        }
-    }
-    
-    public Lista insertSortN(Lista<T> l){
+    public void insertSortN(Lista<T> l){
         
         Nodo<T> temp;
         
@@ -48,11 +32,9 @@ public class Sorts<T extends Comparable> {
             }  
             
         }
-        
-        return l;
     }
     
-    public Lista selectionSortN(Lista<T> l){
+    public void selectionSortN(Lista<T> l){
         
         Nodo<T> temp;
         
@@ -66,26 +48,6 @@ public class Sorts<T extends Comparable> {
             
             if(infLimit != i)
                 l.swapNodos(l.getNodo(infLimit),l.getNodo(i));
-        }
-        
-        return l;
-    }
-    
-    public void selectionSort(Comparable[] datos){
-        
-        Comparable temp;
-        
-        for(int i = 0; i <= datos.length; i++){
-            int infLimit = i;
-            
-            for(int j = i + 1; j <= datos.length; j++){
-                if(datos[infLimit].compareTo(datos[j]) < 0)
-                        infLimit = j;
-            }
-            
-            temp =datos[infLimit];
-            datos[infLimit] = datos[i];
-            datos[i] = temp;
         }
     }
     
@@ -123,13 +85,13 @@ public class Sorts<T extends Comparable> {
             }
             for(int i = 1; i<=lFinal.length();i++)
                 l.setNodo(lFinal.getNodo(i), ini+i-1);
-            //lFinal.print();
+            
             return l;
         }   
     }
     
     
-    public Lista bubbleSortN(Lista<T> l){
+    public void bubbleSortN(Lista<T> l){
         
         boolean band = true;
         Nodo<T> temp;
@@ -143,14 +105,28 @@ public class Sorts<T extends Comparable> {
                 }
             }
         }
-        
-        return l;
     }
     
-    public Lista quickSort(Lista<T> l){
+    public void quickSortN(Lista<T> l,int ini, int fin){
+        
+        Nodo<T> pivot = l.getNodo(fin);
+        int j = ini;
+        
+        for(int i = ini; i < fin; i++){
+            if(l.getNodo(i).getInfo().compareTo(pivot.getInfo()) < 0){
+                l.swapNodos(l.getNodo(i),l.getNodo(j));
+                j++;
+            }
+        }
+        l.swapNodos(l.getNodo(fin),l.getNodo(j));
+        
+        if(ini<j-1)
+            quickSortN(l,ini,j-1);
+        
+        if(j+1<fin)
+            quickSortN(l,j+1,fin);
         
         
-        return l;
     }
     
 }
