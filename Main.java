@@ -73,7 +73,7 @@ public class Main {
         System.out.println("Resultado 1");
         lSelection.print();
         System.out.println("Resultado 2");
-        lprueba = sort.selectionSortN(lprueba);
+        lprueba = sort.mergeSortN(lprueba,1,lprueba.length());
         lprueba.print();
         
     }

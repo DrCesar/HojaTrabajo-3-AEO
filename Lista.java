@@ -18,6 +18,11 @@ public class Lista<T extends Comparable>{
     public Lista(){
     }
     
+    public Lista(T i){
+        raiz.setInfo(i);
+        raiz = null;
+    }
+    
     public void add(T i){
         if(raiz == null){
             raiz = new Nodo<>(i);
@@ -59,14 +64,12 @@ public class Lista<T extends Comparable>{
         Nodo<T> temp = raiz;
         int cont = 1;
         
-        while(cont < i && temp != null){
+        while(cont < i && temp.getNext() != null){
             temp = temp.getNext();
             cont++;
         }
-        Nodo<T> n = p;
-        
-        p.setInfo(temp.getInfo());
-        temp.setInfo(n.getInfo());
+        if(p!=null)
+            temp.setInfo(p.getInfo());
     }
 
     
@@ -79,12 +82,11 @@ public class Lista<T extends Comparable>{
     }
     
     public void swapNodos(Nodo<T> p, Nodo<T> n){
-        Nodo<T> temp = new Nodo<T>();
+        Nodo<T> temp = new Nodo<>();
         
         temp.setInfo(n.getInfo());
         n.setInfo(p.getInfo());
         p.setInfo(temp.getInfo());
-        int negro = 0;
     }
     
     
