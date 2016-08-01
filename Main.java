@@ -35,14 +35,14 @@ public class Main {
         List<String> lines = numeros;
         URL location = Main.class.getResource("Main.class");
         String dir = location.getPath();
-        /*Path file = Paths.get(dir.substring(0,dir.indexOf("Main"))+"/numeros.txt");*/
+        Path file = Paths.get(dir.substring(0,dir.indexOf("Main"))+"/numeros.txt");
         
         Lista<Integer> lSelection = new Lista<Integer>();
         Lista<Integer> lInsert = new Lista<Integer>();
         Lista<Integer> lMerge = new Lista<Integer>();
         Lista<Integer> lQuick = new Lista<Integer>();
         Sorts<Integer> sort = new Sorts<Integer>();
-        /*
+        
         for(int i = 1; i <= 10; i++){
             num = randNum.nextInt(500) + 1;
             numeros.add(Integer.toString(num));
@@ -53,7 +53,7 @@ public class Main {
             Files.write(file, lines, Charset.forName("UTF-8"));
         }catch(IOException e){
             System.out.println("No se pudo crear el archivo.");
-        }*/
+        }
         
         
         try(BufferedReader buff = new BufferedReader(new FileReader(dir.substring(0,dir.indexOf("Main"))+"/numeros.txt"))) {
