@@ -81,7 +81,7 @@ public class Main {
         sort.insertSortN(lInsert);
         lInsert.print();
         System.out.println("Resultado Merge Sort");
-        sort.quickSortN(lMerge,1,lMerge.length());
+        sort.mergeSortN(lMerge,1,lMerge.length());
         lMerge.print();
         System.out.println("Resultado Quick Sort");
         sort.quickSortN(lQuick,1,lQuick.length());
